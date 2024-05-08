@@ -1364,4 +1364,56 @@ a {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* 鼠标悬停时加强阴影效果 */
     transform: translateY(-2px); /* 轻微上移，增加动态感 */
   }
+  .reservation-box {
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-bottom: 150px;
+  }
+  .selectedCar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 200px;
+  }
+  .selectedCar h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  #carDetails {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #carDetails img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  #carDetails p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  #carDetails p:first-of-type {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 600;
+  }
 }

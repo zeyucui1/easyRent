@@ -14,13 +14,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const clearButton = document.getElementById('clearFilters')
   clearButton.addEventListener('click', () => {
-    // console.log('Clearing filters', carsData)
     selectedType = null
     selectedBrand = null
     renderCars(carsData)
   })
 
-  // Populate dropdown menus and attach event listeners
   function populateDropdowns(cars) {
     const types = new Set(cars.map((car) => car.type))
     const brands = new Set(cars.map((car) => car.brand))
@@ -53,22 +51,19 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-  // Filter and render cars based on selected type and brand
   function filterAndRenderCars(cars) {
-    const filteredCars = cars.filter((car) => {
-      return (
+    const filteredCars = cars.filter(
+      (car) =>
         (!selectedType || car.type === selectedType) &&
         (!selectedBrand || car.brand === selectedBrand)
-      )
-    })
+    )
     renderCars(filteredCars)
   }
 
-  // Render cars
   function renderCars(cars) {
     const carList = document.getElementById('featured-car-list')
     carList.innerHTML = '' // Clear existing cars
-    cars.forEach((car) => {
+    cars.forEach((car, index) => {
       const carHTML = `
         <li>
           <div class="featured-car-card">
@@ -104,12 +99,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p class="card-price">
                   <strong>$${car.pricePerDay}</strong> / Day
                 </p>
-                <button class="btn">Rent now</button>
+                <button class="btn" data-index="${index}">Rent now</button>
               </div>
             </div>
           </div>
         </li>`
       carList.innerHTML += carHTML
     })
+
+    // Attach event listeners to buttons after rendering
+    document.querySelectorAll('.btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        const index = button.getAttribute('data-index')
+        rentCar(index)
+      })
+    })
+  }
+  function rentCar(index) {
+    const car = carsData[index]
+    // console.log('Renting car:', car)
+    localStorage.setItem('selectedCar', JSON.stringify(car))
+    window.location.href = 'reservationPage.php' // Redirect to the reservation PHP page
   }
 })
