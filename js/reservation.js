@@ -14,9 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
           <p>Description: ${selectedCar.description}</p>
       `
   } else {
-    // 如果没有车辆信息，提示用户并可能跳转回选择页面
     carDetailsDiv.innerHTML =
-      '<p>No car selected. Please go back to select a car.</p>'
+      '<p class="no-booking-alert">Currently, there are no bookings.</p>'
   }
 
   const form = document.getElementById('reservationForm')

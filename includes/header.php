@@ -53,7 +53,7 @@
           <span class="contact-time">Mon - Sat: 9:00 am - 6:00 pm</span>
         </div>
 
-        <a href="#featured-car" class="btn" aria-labelledby="aria-label-txt">
+        <a href="reservationPage.php"  aria-labelledby="aria-label-txt">
           <ion-icon name="car-outline"></ion-icon>
 
           <span id="aria-label-txt">My Reservation</span>
@@ -63,5 +63,6 @@
 
     </div>
   </header>
+
 </body>
 </html>

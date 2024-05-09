@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,11 +25,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <title>Reservation Page</title>
- <script src="./js//reservation.js"></script>
+<script src="./js/reservation.js"></script>
 
 <body>
 
-<header class="header" data-header>
+  <header class="header" data-header>
     <div class="container">
 
       <div class="overlay" data-overlay></div>
@@ -45,7 +44,7 @@
           <li>
             <a href="index.php" class="navbar-link" data-nav-link>Home</a>
           </li>
-        
+
           <li>
             <a href="#footer" class="navbar-link" data-nav-link>About Us</a>
           </li>
@@ -68,32 +67,62 @@
   </header>
 
   <main>
-  
+
     <div class="blank" style="height: 100px;"></div>
     <div class="reservation-box">
       <div class="selectedCar">
-    <h1>Your selected Car</h1>
-    <div id="carDetails"></div>
+        <h1>Your selected Car</h1>
+        <div id="carDetails"></div>
+      </div>
+      <div class="reservationBox">
+        <h1>Reservation Form</h1>
+        <form id="reservationForm">
+          <div class="reservationDetail">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" required>
+
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" value="1" min="1" required>
+            <label for="Price">Total Price: </label>
+            <span id="totalPrice">$0.00</span>
+          </div>
+          <div class="reservationInformation">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required pattern="[A-Za-z\s\-]+" title="Name must only contain letters, spaces, and hyphens.">
+
+            <label for="phone">Mobile Number:</label>
+            <input type="tel" id="phone" required pattern="04[\d\s\-]{8,10}" title="Mobile number must start with 04 followed by 8 to 10 digits or spaces/hyphens.">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address.">
+
+            <label for="license">Valid Driver's License:</label>
+            <input type="text" id="license" required pattern="[A-Za-z0-9\-]+" title="Driver's license must contain only alphanumeric characters and hyphens.">
+          </div>
+
+          <div class="reservationBtn">
+            <button type="submit" class='btn'>Reserve</button>
+            <button type="button" class='btn' onclick="cancelReservation()">Cancel Reservation</button>
+          </div>
+        </form>
+      </div>
+
     </div>
-    <h2>Reservation Form</h2>
-    <form id="reservationForm">
-    <label for="startDate">Start Date:</label>
-    <input type="date" id="startDate" required>
 
-    <label for="endDate">End Date:</label>
-    <input type="date" id="endDate" required>
+    <script>
+      function cancelReservation() {
+        
+        alert("Your previous reservation has been cancelled. You can now make a new booking.");
 
-    <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" value="1" min="1" required>
+        localStorage.removeItem('selectedCar');
 
-    <p>Total Price: <span id="totalPrice">$0.00</span></p>
+        window.location.href = 'index.php';
+      }
+    </script>
 
-    <button type="submit">Reserve</button>
-</form>
-    
-</div> 
-
- 
   </main>
   <?php
   require_once './includes/footer.php';
