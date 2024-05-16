@@ -3,7 +3,7 @@ ob_start();
 
 $host = "localhost";
 $username = "root";
-$password = "";
+$password = "11111111";
 $dbname = "easyrent";
 
 $conn = new mysqli($host, $username, $password, $dbname);
