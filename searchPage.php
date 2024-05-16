@@ -1,13 +1,13 @@
 <?php
-// 解析 JSON 数据
+
 $jsonData = file_get_contents('data/car.json');
 $cars = json_decode($jsonData, true)['cars'];
 
-// 获取搜索条件
+
 $brand = $_GET['brand'] ?? '';
 $type = $_GET['type'] ?? '';
 
-// 筛选数据
+
 $filteredCars = array_filter($cars, function ($car) use ($brand, $type) {
   $matchBrand = $brand === '' || stripos($car['brand'], $brand) !== false;
   $matchType = $type === '' || stripos($car['type'], $type) !== false;

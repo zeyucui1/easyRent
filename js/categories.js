@@ -2,12 +2,14 @@ document.addEventListener('DOMContentLoaded', function () {
   let selectedType = null
   let selectedBrand = null
   let carsData = []
+  let filteredCars = [] // 添加一个变量存储筛选后的汽车数据
 
   fetch('data/car.json')
     .then((response) => response.json())
     .then((data) => {
       carsData = data.cars
-      renderCars(carsData)
+      filteredCars = carsData // 初始化为所有汽车数据
+      renderCars(filteredCars)
       populateDropdowns(carsData)
     })
     .catch((error) => console.error('Error loading the cars data:', error))
@@ -16,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
   clearButton.addEventListener('click', () => {
     selectedType = null
     selectedBrand = null
-    renderCars(carsData)
+    filteredCars = carsData // 重置为所有汽车数据
+    renderCars(filteredCars)
   })
 
   function populateDropdowns(cars) {
@@ -52,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function filterAndRenderCars(cars) {
-    const filteredCars = cars.filter(
+    filteredCars = cars.filter(
       (car) =>
         (!selectedType || car.type === selectedType) &&
         (!selectedBrand || car.brand === selectedBrand)
@@ -115,9 +118,9 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     })
   }
+
   function rentCar(index) {
-    const car = carsData[index]
-    // console.log('Renting car:', car)
+    const car = filteredCars[index] // 使用筛选后的汽车数据
     localStorage.setItem('selectedCar', JSON.stringify(car))
     window.location.href = 'reservationPage.php' // Redirect to the reservation PHP page
   }
