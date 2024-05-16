@@ -20,13 +20,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const form = document.getElementById('reservationForm')
   form.onsubmit = function (event) {
-    event.preventDefault()
     // 这里可以添加将预订信息发送到服务器的代码
-    console.log('Form submitted', {
+    const reservationData = {
       startDate: document.getElementById('startDate').value,
       endDate: document.getElementById('endDate').value,
       quantity: document.getElementById('quantity').value,
-    })
+      totalPrice: document.getElementById('totalPrice').textContent,
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+    }
+
+    localStorage.setItem('reservationData', JSON.stringify(reservationData))
+    window.location.href = 'confirmation.php'
+    console.log('Form submitted', reservationData)
   }
   const startDateInput = document.getElementById('startDate')
   const endDateInput = document.getElementById('endDate')

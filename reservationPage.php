@@ -76,7 +76,7 @@
       </div>
       <div class="reservationBox">
         <h1>Reservation Form</h1>
-        <form id="reservationForm">
+        <form id="reservationForm" action="confirmation.php" method="POST">
           <div class="reservationDetail">
             <label for="startDate">Start Date:</label>
             <input type="date" id="startDate" required>

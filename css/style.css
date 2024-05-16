@@ -1268,7 +1268,7 @@ a {
     color: black; /* 字体颜色为白色 */
     padding: 10px 25px; /* 内边距设置，确保按钮有足够的点击区域 */
     font-size: 16px; /* 字体大小 */
-    border: none; /* 无边框 */
+    border: 1px solid skyblue; /* 无边框 */
     cursor: pointer; /* 鼠标悬停时显示手型指针 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加轻微阴影，提升层次感 */
     backdrop-filter: blur(10px); /* 模糊效果更强的磨砂玻璃背景 */
@@ -1466,6 +1466,51 @@ a {
     padding-left: 20px;
   }
 
+  .confirmation-box {
+    height: 500px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .confirmation-title {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+
+  .confirmation-item {
+    font-size: 18px;
+    color: #666666;
+    margin: 10px 0;
+  }
+
+  .confirmation-item strong {
+    color: #333333;
+  }
+
+  .confirmation-item span {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+    color: #333333;
+  }
+  .confirmBtn {
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+  }
   label {
     font-weight: bold;
     margin-top: 10px;
