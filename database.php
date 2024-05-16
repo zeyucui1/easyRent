@@ -1,8 +1,8 @@
 <?php
 ob_start();
 
-$host = "localhost";
-$username = "root";
+$host = "awseb-e-bfp7mmp9ps-stack-awsebrdsdatabase-znxl5l4fn0xa.c1skgku8mc72.us-east-1.rds.amazonaws.com";
+$username = "uts";
 $password = "11111111";
 $dbname = "easyrent";
 
