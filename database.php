@@ -1,9 +1,9 @@
 <?php
 ob_start();
 
-$host = "awseb-e-bfp7mmp9ps-stack-awsebrdsdatabase-znxl5l4fn0xa.c1skgku8mc72.us-east-1.rds.amazonaws.com";
-$username = "uts";
-$password = "11111111";
+$host = "localhost";
+$username = "root";
+$password = "";
 $dbname = "easyrent";
 
 $conn = new mysqli($host, $username, $password, $dbname);
