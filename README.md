@@ -131,7 +131,7 @@ Give a ⭐️ if this project helped you!
 
 ### Categories Page
 
-![Categories](./screenshot/categrie.png)
+![Categories](./screenshot/categories.png)
 
 ### Database Structure
 
